@@ -10,6 +10,7 @@ export const drawRect = (detections, ctx) =>{
         ctx.strokeStyle = color
         ctx.font = '18px Arial'
         ctx.fillStyle = color
+        ctx.width = 5
         //Draw rectangles  and text
         ctx.beginPath()
         ctx.fillText(text,x,y)
