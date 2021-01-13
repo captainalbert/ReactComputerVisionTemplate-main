@@ -80,6 +80,7 @@ function App() {
 
   const [onStart, setOnStart] = useState(false);
   const [score, setScore] = useState(0);
+  const [onObjectChange, setOnObjectChange] = usestate([]);
 
 
   const classes = useStyles();
@@ -120,6 +121,7 @@ function App() {
       console.log(obj);
       
       console.log("HAHAHAHHAHAHHA ITO NA YON" + net)
+      setOnObjectChange(net);
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
 
