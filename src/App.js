@@ -82,7 +82,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [onObjectChange, setOnObjectChange] = usestate([]);
 
-
+  console.log("TESTING", onObjectChange);
   const classes = useStyles();
 
   // Main function
