@@ -79,7 +79,7 @@ function App() {
   const canvasRef = useRef(null);
 
   const [onStart, setOnStart] = useState(true);
-  const [onObjectChange, setOnObjectChange] = useState([]);
+  const [onObjectChange, setOnObjectChange] = useState(null);
 
   console.log("TESTING", onObjectChange)
 
@@ -195,11 +195,11 @@ function App() {
               Detected:
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Class: {onObjectChange[0].class}
+              Class: {onObjectChange && onObjectChange[0].class}
             </Typography>
 
             <Typography variant="body2" color="textSecondary" component="p">
-              Score: {onObjectChange[0].score}
+              Score: {onObjectChange && onObjectChange[0].score}
             </Typography>
 
             <div style={{ textAlign: "center" }}>
