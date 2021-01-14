@@ -78,11 +78,12 @@ function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const [onStart, setOnStart] = useState(false);
-  const [score, setScore] = useState(0);
-  const [onObjectChange, setOnObjectChange] = usestate([]);
+  const [onStart, setOnStart] = useState(true);
+  const [onObjectChange, setOnObjectChange] = useState([]);
 
-  console.log("TESTING", onObjectChange);
+  console.log("TESTING", onObjectChange)
+
+
   const classes = useStyles();
 
   // Main function
@@ -118,10 +119,11 @@ function App() {
       // 4. TODO - Make Detections
       // e.g. const obj = await net.detect(video);
       const obj = await net.detect(video);
-      console.log(obj);
+      // console.log(obj[0].class);
       
-      console.log("HAHAHAHHAHAHHA ITO NA YON" + net)
-      setOnObjectChange(net);
+      
+      setOnObjectChange(obj);
+
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
 
@@ -138,7 +140,7 @@ function App() {
         <AppBar position="static">
           <Toolbar>
             <Typography className={classes.title} variant="h6" noWrap>
-              Object Detection
+              Object Detection System
             </Typography>
           </Toolbar>
         </AppBar>
@@ -190,22 +192,24 @@ function App() {
           </div>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Object detection
+              Detected:
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Object detection is a computer technology related to computer vision
-              and image processing that deals with detecting instances of semantic
-              objects of a certain class (such as humans, buildings, or cars) in
-              digital images and videos.
+              Class: {onObjectChange[0].class}
             </Typography>
+
+            <Typography variant="body2" color="textSecondary" component="p">
+              Score: {onObjectChange[0].score}
+            </Typography>
+
             <div style={{ textAlign: "center" }}>
-              <Button
+              {/* <Button
                 variant="contained"
                 color="primary"
                 onClick={() => setOnStart(true)}
               >
                 Start
-              </Button>
+              </Button> */}
 
               
 
